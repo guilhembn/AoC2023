@@ -22,6 +22,7 @@ def solve2(filename: str) -> None:
                     if line[i:].startswith(letters):
                         first_digit = number
                         to_break = True
+                        break
                 if to_break:
                     break
             for i, c in enumerate(line[::-1]):
@@ -33,6 +34,7 @@ def solve2(filename: str) -> None:
                     if line[::-1][i:].startswith(letters[::-1]):
                         second_digit = number
                         to_break = True
+                        break
                 if to_break:
                     break
             if first_digit is None or second_digit is None:
