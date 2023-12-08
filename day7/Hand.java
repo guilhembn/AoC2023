@@ -18,7 +18,7 @@ public class Hand implements Comparable<Hand>{
     public String getCardsStr(){
         String out = new String();
         for (Card c: cards){
-            out += c.name();
+            out += c.toString();
         }
         return out;
     }
@@ -33,12 +33,16 @@ public class Hand implements Comparable<Hand>{
         }
         return new Hand(cards, Integer.parseInt(split[1]));
     }
+    @Override
+    public String toString() {
+        return this.getCardsStr() + " " + this.bid;
+    }
     static public enum Type{
         HIGH, ONE_PAIR, TWO_PAIRS, THREEOAK, FULL_HOUSE, FOUROAK, FIVEOAK
     }
-    private Card[] cards;
-    private Type type;
-    private int bid;
+    protected Card[] cards;
+    protected Type type;
+    protected int bid;
 
     protected void computeType(){
         Set<Card> cardsSet = new HashSet<>(Arrays.asList(cards));

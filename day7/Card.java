@@ -7,6 +7,15 @@ public enum Card{
     public static Card New(char value){
         return strToCard.get(String.valueOf(value));
     }
+    @Override
+    public String toString() {
+        for (String s: strToCard.keySet()){
+            if (strToCard.get(s) == this){
+                return s;
+            }
+        }
+        return "";
+    }
 
     private static final Map<String, Card> strToCard = new HashMap<>();
     static{
