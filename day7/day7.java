@@ -7,7 +7,7 @@ public class day7 {
     public static void main(String args[]) {
         ArrayList<Hand> hands = new ArrayList<>();
         ArrayList<Hand> handsJoker = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("/home/guilhem/Documents/AoC2023/day7/input.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("/home/guilhem.buisan/Documents/perso/AoC2023/day7/input.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 hands.add(Hand.fromString(line));
@@ -22,7 +22,6 @@ public class day7 {
     }
     public static int puzzle1(ArrayList<Hand> hands){
         Collections.sort(hands);
-        System.out.println(hands);
         int sum = 0;
         for (int i =0; i < hands.size(); i++){
             sum += hands.get(i).getBid() * (i+1);

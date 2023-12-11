@@ -8,7 +8,6 @@ public class HandJoker extends Hand{
     
     public HandJoker(Card[] cards, int bid) {
         super(cards, bid);
-        System.out.println(this.type.toString());
     }
 
    
@@ -24,7 +23,9 @@ public class HandJoker extends Hand{
     @Override
     protected void computeType(){
         ArrayList<Card> cardsWithoutJoker = new ArrayList<>(Arrays.asList(cards));
-        cardsWithoutJoker.remove(Card.J);
+        while(cardsWithoutJoker.contains(Card.J)){
+            cardsWithoutJoker.remove(Card.J);
+        }
         if (cardsWithoutJoker.size() == 0){
             type = Type.FIVEOAK;
             return;
